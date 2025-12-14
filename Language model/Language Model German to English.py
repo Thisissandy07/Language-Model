@@ -59,11 +59,19 @@ root.geometry("700x450")
 
 tk.Label(root, text="Source Language").pack()
 source_lang = tk.StringVar(value=LANGUAGES[0])
-tk.OptionMenu(root, source_lang, *LANGUAGES).pack()
+source_menu = ttk.Combobox(root,
+                           textvariable=source_lang, 
+                           values=list(LANGUAGES), 
+                           width=30)
+source_menu.pack()                        
 
 tk.Label(root, text="Target Language").pack()
 target_lang = tk.StringVar(value=LANGUAGES[1])
-tk.OptionMenu(root, target_lang, *LANGUAGES).pack()
+target_menu = ttk.Combobox(root,
+                           textvariable=target_lang, 
+                           values=list(LANGUAGES), 
+                           width=30)
+target_menu.pack()
 
 tk.Button(
     root,
@@ -83,6 +91,7 @@ output_text = tk.Text(root, height=6, width=60, bg="#f0f0f0")
 output_text.pack()
 
 root.mainloop()
+
 
 
 
