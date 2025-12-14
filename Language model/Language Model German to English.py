@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import ttk, messagebox
 from huggingface_hub import InferenceClient
 import os
 TRANSLATION_MODELS = {
@@ -91,6 +91,7 @@ output_text = tk.Text(root, height=6, width=60, bg="#f0f0f0")
 output_text.pack()
 
 root.mainloop()
+
 
 
 
