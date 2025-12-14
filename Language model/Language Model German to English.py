@@ -16,7 +16,7 @@ LANGUAGES = sorted(set(lang for pair in TRANSLATION_MODELS.keys() for lang in pa
 
 client = InferenceClient(
     provider="hf-inference",
-    token= "Enter Token Value Here"
+    token= "Enter Token Value"
 )
 
 def translate_text():
@@ -47,9 +47,7 @@ def translate_text():
 def swap_languages():
     s = source_lang.get()
     t = target_lang.get()
-    if s == "Auto-detect":
-        messagebox.showinfo("Swap", "Cannot swap when source is Auto-detect.")
-        return
+
     source_lang.set(t)
     target_lang.set(s)
 
@@ -59,11 +57,11 @@ root.title("Multi-Language Translator")
 root.geometry("700x450")
 
 
-tk.Label(root, text="Source Language").pack(pady=2)
+tk.Label(root, text="Source Language").pack()
 source_lang = tk.StringVar(value=LANGUAGES[0])
 tk.OptionMenu(root, source_lang, *LANGUAGES).pack()
 
-tk.Label(root, text="Target Language").pack(pady=2)
+tk.Label(root, text="Target Language").pack()
 target_lang = tk.StringVar(value=LANGUAGES[1])
 tk.OptionMenu(root, target_lang, *LANGUAGES).pack()
 
@@ -74,17 +72,19 @@ tk.Button(
     command=swap_languages
 ).pack(pady=5)
 
-tk.Label(root, text="Enter Text").pack(pady=5)
+tk.Label(root, text="Enter Text").pack()
 input_text = tk.Text(root, height=6, width=60)
 input_text.pack()
 
-tk.Button(root, text="Translate", font=("Arial", 11, "bold"), command=translate_text).pack(pady=10)
+tk.Button(root, text="Translate", command=translate_text).pack()
 
-tk.Label(root, text="Translated Text").pack(pady=5)
+tk.Label(root, text="Translated Text").pack()
 output_text = tk.Text(root, height=6, width=60, bg="#f0f0f0")
 output_text.pack()
 
 root.mainloop()
+
+
 
 
 
