@@ -84,13 +84,15 @@ tk.Label(root, text="Enter Text").pack()
 input_text = tk.Text(root, height=6, width=60)
 input_text.pack()
 
-tk.Button(root, text="Translate", command=translate_text).pack()
+
 
 tk.Label(root, text="Translated Text").pack()
 output_text = tk.Text(root, height=6, width=60, bg="#f0f0f0")
 output_text.pack()
+tk.Button(root, text="Translate", command=translate_text).pack()
 
 root.mainloop()
+
 
 
 
